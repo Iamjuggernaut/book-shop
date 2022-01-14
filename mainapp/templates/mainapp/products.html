@@ -1,0 +1,36 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block container %}
+	<div class="hero-white">
+		{% include 'mainapp/includes/inc__main_menu.html' %}
+	</div>
+
+	<div class="details">
+		{% include 'mainapp/includes/inc__category_menu.html' %}
+
+		<div class="details-products">
+			<div class="details-slider">
+				<div class="slider-product">
+					<img src="{% static 'img/NavigateC1.jpg' %}">
+				</div>
+				
+			</div>
+
+			<div class="description">
+				<h3 class="big-bold">Navigate C1</h3>
+				<h3 class="red">ПОПУЛЯРНОЕ</h3>
+				<p class="price"> 2585.9 <span>руб</span></p>
+				<a href="{% url 'basket:add' 5 %}" class="red-button">
+					заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
+				</a>
+				<div class="description-text">
+					<p>Учебное пособие</p> 
+					<p>Рабочая тетрадь</p> 
+					<p>Аудиоматериалы</p>
+					<p>Видеоматериалы</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

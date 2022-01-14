@@ -1,0 +1,14 @@
+[
+    {
+        "name": "English Textbooks",
+        "description": "Sets of material for English learners"
+    },
+    {
+        "name": "Fantasy Books",
+        "description": "Worlds of magic and adventure"
+    },
+    {
+        "name": "Short stories",
+        "description": "Short stories"
+    }
+]

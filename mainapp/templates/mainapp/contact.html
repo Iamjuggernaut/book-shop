@@ -1,0 +1,24 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block container %}
+	<div class="hero">
+		{% include 'mainapp/includes/inc__main_menu.html' %}
+		<h1>контакты</h1>
+	</div>
+
+	<div class="location">
+		<div class="location-1">
+			<h4>Москва</h4>
+			<div class="contacts">
+				<h5>Телефон</h5>
+				<p>+7-999-451-7577</p>
+			</div>
+			<div class="contacts">
+				<h5>Email</h5>
+				<p>joinlearningenglish@gmail.com</p>
+			</div>
+		</div>
+	
+	</div>
+{% endblock %}

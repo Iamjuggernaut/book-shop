@@ -1,0 +1,47 @@
+[
+    {
+        "category": "English Textbooks",
+        "name": "Navigate A2",
+        "image": "",
+        "short_description": "",
+        "description": "",
+        "price": "2950",
+        "quantity": "99"
+    },
+    {
+        "category": "English Textbooks",
+        "name": "Navigate B1",
+        "image": "",
+        "short_description": "Intemediate",
+        "description": "",
+        "price": "2950",
+        "quantity": "99"
+    },
+    {
+        "category": "English Textbooks",
+        "name": "Navigate B1+",
+        "image": "",
+        "short_description": "",
+        "description": "",
+        "price": "2950",
+        "quantity": "99"
+    },
+    {
+        "category": "English Textbooks",
+        "name": "Navigate B2",
+        "image": "",
+        "short_description": "",
+        "description": "",
+        "price": "2950",
+        "quantity": "99"
+    },
+    {
+        "category": "English Textbooks",
+        "name": "Navigate C1",
+        "image": "",
+        "short_description": "",
+        "description": "",
+        "price": "2950",
+        "quantity": "99"
+    }
+]
