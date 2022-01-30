@@ -22,3 +22,20 @@ class ShopUser(AbstractUser):
 
     def basket_total_qty(self):
         return sum(map(lambda x: x.quantity, self.basket.all()))
+
+
+class ShopUserProfile(models.Model):
+    MALE = 'M'
+    FEMALE = 'F'
+    NONBINARY = 'X'
+
+    GENDER_CHOICES = (
+        (MALE, 'Man'),
+        (FEMALE, 'Female'),
+        (NONBINARY, 'Nonbinary'),
+    )
+
+    user = models.OneToOneField(ShopUser, null=False, db_index=True, on_delete=models.CASCADE)
+    tagline = models.CharField(verbose_name='tags', max_length=50, blank=True)
+    about_user = models.TextField(max_length=250, verbose_name='About me', blank=True)
+    gender = models.CharField(verbose_name='gender', max_length=1, choices=GENDER_CHOICES, blank=True)

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from django.core.mail import send_mail
 from pathlib import Path
+import json
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,7 +28,7 @@ SECRET_KEY = 'django-insecure-tw4je#$w$-y&qt&7%#ntc*f=7z-sw$bo_t*=#1=%9x(6*s82q6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['newshop.com', '127.0.0.1']
 
 
 # Application definition
@@ -39,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'social_django',
+
     'mainapp',
     'authapp',
     'basketapp',
@@ -68,6 +72,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -139,8 +147,20 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 AUTH_USER_MODEL = 'authapp.ShopUser'
-
 LOGIN_URL = '/auth/login/'
+
+from social_core.backends.github import GithubOAuth2
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.github.GithubOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+with open(os.path.join(BASE_DIR, 'github.json'), 'r') as credentials:
+    GITHUB_CREDENTIALS = json.load(credentials)
+
+SOCIAL_AUTH_GITHUB_KEY = GITHUB_CREDENTIALS["ID"]
+SOCIAL_AUTH_GITHUB_SECRET = GITHUB_CREDENTIALS["SECRET"]
 
 # DOMAIN_NAME = 'http://127.0.0.1:8000'
 
