@@ -21,11 +21,6 @@
                 Admin panel
             </a>
         </li>
-        <li>
-            <a href="{% url 'ordersapp:orders_list' %}">
-                Заказы
-            </a>
-        </li>
     {% endif %}
     {% if user.is_authenticated %}
     <a href="{#% url 'authapp:profile' %#}" >
