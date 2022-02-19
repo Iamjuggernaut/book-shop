@@ -12,3 +12,7 @@ class Basket(models.Model):
     @property
     def product_cost(self):
         return self.product.price * self.quantity
+
+    @classmethod
+    def get_items(self, user):
+        return Basket.objects.filter(user=user)
