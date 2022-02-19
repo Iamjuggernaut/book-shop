@@ -2,7 +2,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render
 from django.contrib import auth
-from authapp.models import ShopUser
 from authapp.forms import ShopUserLoginForm, ShopUserRegisterForm
 
 
@@ -48,19 +47,3 @@ def register(request):
         'form': form,
     }
     return render(request, 'authapp/register.html', context)
-
-
-def verify(request, email, activation_key):
-    try:
-        user = ShopUser.objects.get(email=email)
-        if user.activation_key == activation_key and not user.is_activation_key_expired():
-            user.is_active = True
-            user.save()
-            auth.login(request, user)
-            return render(request, 'authapp/verification.html')
-        else:
-            print(f'error: activation error of user {e.args}')
-            return render(request, 'authapp/verification.html')
-    except Exception as e:
-        print(f'error activation user: {e:args}')
-        return HttpResponseRedirect(reverse('main'))
